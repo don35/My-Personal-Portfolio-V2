@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Fernando - Web Developer</title>
+<meta name="description" content="Fernando Bingga — Web Developer, Front-End, Back-End, and Software Tester based in Batangas City, Philippines." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#top" class="brand">Fernando<span class="muted">.Dev</span></a>
+      <ul class="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="#contact" class="btn btn-solid btn-sm">Hire me</a>
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <!-- Hero -->
+    <section class="card hero">
+      <img src="images/mypic.jpg" 
+        alt="Fernando Bingga" 
+        class="avatar" 
+        id="hero-pic"
+        data-light="images/mypic.jpg" 
+        data-dark="images/mypic1.jpg"
+        width="160" height="160" />
+      <div class="hero-body">
+        <h1>Fernando Bingga</h1>
+        <p class="location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ic"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Batangas City, Philippines</p>
+        <p class="role">Web Developer · Front-End Developer · Back-End Developer · Software Tester</p>
+        <p class="muted">I design, develop, and test functional and modern web applications for businesses using modern web and AI Technologies.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-solid">
+            <i class="ti ti-mail"></i> Contact Me
+          </a>
+          <a href="#projects" class="btn btn-outline">
+            <i class="ti ti-layout-grid"></i> View Projects
+          </a>
+          <a href="#" class="btn btn-outline">
+            <i class="ti ti-book"></i> Read My Blog
+          </a>
+          <div class="socials inline">
+            <a href="#" aria-label="GitHub" class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+            <a href="#" aria-label="Instagram" class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg></a>
+            <a href="#" aria-label="LinkedIn" class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="mailto:fernandobingga10@gmail.com" aria-label="Email" class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="card">
+      <h2>About</h2>
+      <div class="prose">
+        <p>I'm Fernando Bingga, a passionate web developer specializing in front-end development, back-end systems, and software testing. I enjoy building modern, responsive, and user-friendly systems that solve real-world problems.</p>
+        <p>I work on projects including developing modern web applications, database-driven systems, workflow automation tools, and creating efficient digital solutions using technologies such as JavaScript, PHP, SQL, and Tailwind CSS.</p>
+        <p>I also leverage AI-powered tools and modern development technologies to improve productivity, streamline workflows, accelerate development, and build smarter systems. In addition, I have experience in software testing, search engine optimization (SEO), digital marketing, and creating code-related tutorials and technical content.</p>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+      <div class="card stat"><div class="stat-value">1+</div><div class="stat-label">Years Experience</div></div>
+      <div class="card stat"><div class="stat-value">4+</div><div class="stat-label">Successful Projects</div></div>
+      <div class="card stat"><div class="stat-value">1+</div><div class="stat-label">Happy Clients</div></div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="card">
+      <h2>Tech Stack</h2>
+      <div class="grid-3">
+        <div><h3>Frontend</h3><div class="pills"><span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">Tailwind CSS</span><span class="pill">JavaScript</span></div></div>
+        <div><h3>Backend</h3><div class="pills"><span class="pill">PHP</span><span class="pill">SQL</span><span class="pill">MySQL</span></div></div>
+        <div><h3>Software Testing</h3><div class="pills"><span class="pill">Manual Testing</span><span class="pill">Test Cases Creation</span></div></div>
+        <div><h3>Webstite Builder / No Code</h3><div class="pills"><span class="pill">Wordpress</span><span class="pill">Wix</span></div></div>
+        <div><h3>Developer Tools </h3><div class="pills"><span class="pill">Github</span><span class="pill">VS Code</span></div></div>
+        <div><h3>Website Design </h3><div class="pills"><span class="pill">Figma</span><span class="pill">Adobe XD</span></div></div>
+      </div>
+    </section>
+
+    <!-- Education & Awards -->
+    <section class="grid-2">
+      <div class="card">
+        <h2>Education</h2>
+        <div class="timeline">
+          <div class="muted small">2020 – 2024</div>
+          <h3>Batangas State University — Alangilan Campus</h3>
+          <p class="muted small">Batangas City</p>
+          <p>Bachelor of Science in Information Technology</p>
+        </div><br>
+        <div class="timeline">
+          <div class="muted small">2019 – 2020</div>
+          <h3>AMA Computer College Batangas</h3>
+          <p class="muted small">Batangas City</p>
+          <p>Information Communication Technology</p>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Awards</h2>
+        <ul class="awards">
+          <li><span class="year">2024</span><span>Cum Laude</span></li>
+          <li><span class="year">2023</span><span>Dean Lister — Second Semester</span></li>
+          <li><span class="year">2022</span><span>Dean Lister — First Semester</span></li>
+          <li><span class="year">2021</span><span>Dean Lister — First Semester</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="card">
+      <h2>Experience</h2>
+      <div class="exp">
+        <div class="exp-item">
+          <span class="dot"></span>
+          <div class="exp-head"><h3>Quality Analyst</h3><span class="muted small">2025 – Present</span></div>
+          <p class="muted small">SP Madrid Philippines</p>
+          <p>Responsible for validating reports, maintaining quality standards, software testing, and ensuring operational accuracy.</p>
+        </div>
+        <div class="exp-item">
+          <span class="dot"></span>
+          <div class="exp-head"><h3>Backend Developer</h3><span class="muted small">February 2024 – May 2024</span></div>
+          <p class="muted small">BatStateU ACTION Center — On-the-Job Training</p>
+          <p>Assisted in backend development, database management, and system implementation for community-based web systems and disaster response platforms.</p>
+        </div>
+        <div class="exp-item">
+          <span class="dot"></span>
+          <div class="exp-head"><h3>Hello World!</h3></div>
+          <p class="muted small">Batangas 👋</p>
+          <p>Wrote my first line of code</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+      <div class="grid-2" id="projects-grid"></div>
+    </section>
+
+    <!-- Social Links -->
+    <section id="contact" class="card">
+      <h2>Social Links</h2>
+      <div class="contact-block">
+        <div class="socials bordered">
+          <a href="https://github.com/don35" aria-label="GitHub" target="_blank" class="icon-btn bordered"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+          <a href="#" aria-label="Instagram" class="icon-btn bordered"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg></a>
+          <a href="https://www.linkedin.com/in/fernandobingga/" target="_blank" aria-label="LinkedIn" class="icon-btn bordered"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="mailto:fernandobingga5@gmail.com" aria-label="Email" class="icon-btn bordered"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Chat Widget -->
+      <button class="chat-fab" id="chat-toggle" aria-label="Open chat">
+        <i class="ti ti-message-2"></i>
+        <span class="fab-label">Chat with Fern</span>
+        <span class="fab-badge hidden" id="fab-badge"></span>
+      </button>
+
+      <div class="chat-window" id="chat-window">
+        <div class="chat-header">
+          <img src="images/mypic.jpg" alt="Fern" class="chat-header-pic" />
+          <div class="chat-header-info">
+            <p class="name">Fern</p>
+            <p class="status"><span class="dot"></span> Online</p>
+          </div>
+          <!-- <button class="chat-close" id="chat-close" aria-label="Close chat">
+            <i class="ti ti-x"></i> Close
+          </button> -->
+        </div>
+
+        <div class="chat-messages" id="chat-messages">
+          <div class="msg-row bot">
+            <img src="images/mypic.jpg" alt="Fern" class="chat-pic" />
+            <div class="msg bot">Hi! I'm Fern 👋 Ask me anything about my work, skills, or projects!</div>
+          </div>
+        </div>
+
+        <!-- Quick Reply Chips -->
+        <div class="quick-replies" id="quick-replies">
+          <button class="chip" data-msg="Tell me about your skills">My Skills</button>
+          <button class="chip" data-msg="Show me your projects">View Projects</button>
+          <button class="chip" data-msg="How can I contact you?">Contact Me</button>
+          <button class="chip" data-msg="Are you available for freelance?">Freelance?</button>
+        </div>
+
+        <div class="chat-input-row">
+          <input type="text" class="chat-input" id="chat-input" placeholder="Ask about Fernando..." />
+          <button class="chat-send" id="chat-send" aria-label="Send">
+            <i class="ti ti-send"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© 2026 Fernando Bingga. All Rights Reserved.</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
