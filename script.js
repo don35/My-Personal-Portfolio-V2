@@ -61,44 +61,103 @@
 })();
 
 // Render projects
+// Render projects
 const projects = [
-  { title: 'ACTION Center Public Information', 
+  { 
+    title: 'ACTION Center Public Information', 
     description: 'Disaster preparedness and information management platform for communities and local government units.', 
     tech: ['HTML', 'CSS', 'PHP', 'MySQL', 'JavaScript'],
-    image: 'images/batstateu.png'
+    image: 'images/batstateu.png',
+    category: 'webapp'
   },
-  { title: 'DREAM Academy', 
+  { 
+    title: 'DREAM Academy', 
     description: 'Educational platform providing information, announcements, and academic resources.', 
     tech: ['HTML', 'CSS', 'PHP', 'MySQL', 'JavaScript'],
-    image: 'images/dreamacademy.png'
+    image: 'images/dreamacademy.png',
+    category: 'webapp'
   },
-  { title: 'BANGIS', 
+  { 
+    title: 'BANGIS', 
     description: 'Animal Bite Management Gateway Information System for rabies vaccine and outbreak management.', 
     tech: ['HTML', 'CSS', 'PHP', 'MySQL', 'JavaScript'],
-    image: 'images/bangis.png' 
+    image: 'images/bangis.png',
+    category: 'webapp'
   },
-  { title: 
-    'CC Verification Report Generator', 
+  { 
+    title: 'CC Verification Report Generator', 
     description: 'System for automating and managing credit card verification reports.', 
-    tech: ['HTML','Tailwind CSS', 'JavaScript'],
-    image: 'images/rcbc.png' 
+    tech: ['HTML', 'Tailwind CSS', 'JavaScript'],
+    image: 'images/rcbc1.png',
+    category: 'webapp'
   },
+  { title: 'Built Different', 
+    description: 'Promotional Website for Built Different', 
+    tech: ['Low Code / Wix'], 
+    image: 'images/wix.png', 
+    category: 'lowcode' },
+
+  { title: 'Built Different Mobile App Mock Up', 
+    description: 'Built Different Mobile App Mock Up', 
+    tech: ['Figma'], 
+    image: 'images/figma.png', 
+    category: 'figma' },
+    
+    {title: 'Lush Shole Web App Mock Up', 
+    description: 'Lush Shole Web App Mock Up', 
+    tech: ['Figma'], 
+    image: 'images/figma1.png', 
+    category: 'figma' },
 ];
 
-const grid = document.getElementById('projects-grid');
-if (grid) {
-  grid.innerHTML = projects.map((p) => `
-    <article class="card project-card">
-      <div class="project-thumb">
-        <img src="${p.image}" alt="${p.title} screenshot" loading="lazy" />
-      </div>
-      <h3>${p.title}</h3>
-      <p class="desc">${p.description}</p>
-      <div class="pills">${p.tech.map((t) => `<span class="pill">${t}</span>`).join('')}</div>
-      <a href="#" class="view">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
-    </article>
-  `).join('');
+function renderProjects(filter) {
+  const grid = document.getElementById('projects-grid');
+  if (!grid) return;
+
+  // Fade out first
+  grid.classList.add('fade-out');
+
+  setTimeout(() => {
+    const filtered = filter === 'all' ? projects : projects.filter(p => p.category === filter);
+
+    if (filtered.length === 0) {
+      grid.innerHTML = `<p class="muted" style="padding: 1rem 0;">No projects in this category yet.</p>`;
+    } else {
+      grid.innerHTML = filtered.map((p) => `
+        <article class="card project-card">
+          <div class="project-thumb">
+            <img src="${p.image}" alt="${p.title} screenshot" loading="lazy"
+              onerror="this.style.display='none'" />
+          </div>
+          <h3>${p.title}</h3>
+          <p class="desc">${p.description}</p>
+          <div class="pills">${p.tech.map((t) => `<span class="pill">${t}</span>`).join('')}</div>
+          <a href="#" class="view">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+        </article>
+      `).join('');
+    }
+
+    // Fade back in
+    grid.classList.remove('fade-out');
+    grid.classList.add('fade-in');
+
+    setTimeout(() => grid.classList.remove('fade-in'), 250);
+
+  }, 250); // wait for fade-out to finish before swapping content
 }
+
+// Tab switching
+const tabBtns = document.querySelectorAll('.tab-btn');
+tabBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    tabBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderProjects(btn.dataset.tab);
+  });
+});
+
+// Initial render
+renderProjects('all');
 
 // ── Chatbot Widget ── 
 const toggle   = document.getElementById('chat-toggle');
@@ -126,7 +185,7 @@ function playPing() {
 
 const responses = {
   skills:      "I work with PHP, MySQL, JavaScript, HTML, CSS, and Tailwind CSS on both frontend and backend projects.",
-  projects:    "I've built 4+ projects — ACTION Center, DREAM Academy, BANGIS, and a CC Verification Report Generator.",
+  projects:    "I've built 4+ web app projects — ACTION Center, DREAM Academy, BANGIS, and a CC Verification Report Generator. Im also creating some web design using FIgma and mockup",
   experience:  "I'm currently a Quality Analyst at SP Madrid Philippines. I also did OJT as a Backend Developer at BatStateU ACTION Center.",
   education:   "I graduated Cum Laude with a BS in Information Technology from Batangas State University — Alangilan Campus in 2024.",
   contact:     "You can reach me via email or LinkedIn!",
