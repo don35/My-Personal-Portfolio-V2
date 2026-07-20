@@ -1,4 +1,4 @@
-// Theme toggle with localStorage persistence
+// Functions for Theme toggle with localStorage persistence
 (function () {
   const stored = localStorage.getItem('theme');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -60,7 +60,7 @@
   map.forEach((_, id) => observer.observe(document.getElementById(id)));
 })();
 
-// Render projects
+//Functions for the Project
 // Render projects
 const projects = [
   { 
@@ -79,42 +79,100 @@ const projects = [
   },
   { 
     title: 'BANGIS', 
-    description: 'Animal Bite Management Gateway Information System for rabies vaccine and outbreak management.', 
+    description: 'Animal Bite Management Gateway Information System for rabies vaccine and outbreak management', 
     tech: ['HTML', 'CSS', 'PHP', 'MySQL', 'JavaScript'],
     image: 'images/bangis.png',
     category: 'webapp'
   },
   { 
     title: 'CC Verification Report Generator', 
-    description: 'System for automating and managing credit card verification reports.', 
+    description: 'System for automating and managing credit card verification reports with AI Assistant Integration .', 
     tech: ['HTML', 'Tailwind CSS', 'JavaScript'],
     image: 'images/rcbc1.png',
     category: 'webapp'
   },
-  { title: 'Built Different', 
+
+  { 
+    title: 'Endorsement Tracker', 
+    description: 'A web app tool for monitoring and tracking accounts endorsed by the rcbc bank', 
+    tech: ['HTML', 'Tailwind CSS', 'JavaScript', 'PHP', 'MySQL'],
+    image: 'images/endorsementtracker.png', 
+    category: 'webapp' 
+  },
+
+   { 
+    title: 'End of the Day Report Generator', 
+    description: 'A web app tool for generating end of the day reports for the rcbc bank', 
+    tech: ['HTML', 'Tailwind CSS', 'JavaScript', 'ChartJS '],
+    image: 'images/eod.png', 
+    category: 'webapp' 
+  },
+  
+  { 
+    title: 'Built Different Mobile App Mock Up', 
     description: 'Promotional Website for Built Different', 
     tech: ['Low Code / Wix'], 
     image: 'images/wix.png', 
-    category: 'lowcode' },
+    category: 'lowcode' 
+  },
 
-  { title: 'Built Different Mobile App Mock Up', 
+  { 
+    title: 'Built Different Mobile App Mock Up', 
     description: 'Built Different Mobile App Mock Up', 
     tech: ['Figma'], 
     image: 'images/figma.png', 
-    category: 'figma' },
+    category: 'figma' 
+  },
     
-    {title: 'Lush Shole Web App Mock Up', 
+  {
+    title: 'Lush Shole Web App Mock Up', 
     description: 'Lush Shole Web App Mock Up', 
     tech: ['Figma'], 
     image: 'images/figma1.png', 
-    category: 'figma' },
+    category: 'figma'
+   },
+
 ];
 
+
+
+
+
+// ---- Image modal logic ----
+function openImageModal(src, caption = '') {
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImage');
+  const modalCaption = document.getElementById('modalCaption');
+
+  modal.classList.add('active');
+  modalImg.src = src;
+  modalCaption.textContent = caption;
+  document.body.style.overflow = 'hidden';
+}
+
+function closeImageModal() {
+  const modal = document.getElementById('imageModal');
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('imageModal').addEventListener('click', (e) => {
+  if (e.target.id === 'imageModal' || e.target.classList.contains('image-modal-close')) {
+    closeImageModal();
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeImageModal();
+});
+
+
+
+//Functions for Every Projects Category 
 function renderProjects(filter) {
   const grid = document.getElementById('projects-grid');
   if (!grid) return;
 
-  // Fade out first
   grid.classList.add('fade-out');
 
   setTimeout(() => {
@@ -126,8 +184,14 @@ function renderProjects(filter) {
       grid.innerHTML = filtered.map((p) => `
         <article class="card project-card">
           <div class="project-thumb">
-            <img src="${p.image}" alt="${p.title} screenshot" loading="lazy"
-              onerror="this.style.display='none'" />
+            <img 
+              src="${p.image}" 
+              alt="${p.title} screenshot" 
+              loading="lazy"
+              data-src="${p.image}"
+              data-title="${p.title.replace(/"/g, '&quot;')}"
+              onerror="this.style.display='none'"
+            />
           </div>
           <h3>${p.title}</h3>
           <p class="desc">${p.description}</p>
@@ -135,15 +199,20 @@ function renderProjects(filter) {
           <a href="#" class="view">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
         </article>
       `).join('');
+
+      // attach click listeners to newly rendered images so they open the modal
+      grid.querySelectorAll('.project-thumb img').forEach(img => {
+        img.addEventListener('click', () => {
+          openImageModal(img.dataset.src, img.dataset.title);
+        });
+      });
     }
 
-    // Fade back in
     grid.classList.remove('fade-out');
     grid.classList.add('fade-in');
-
     setTimeout(() => grid.classList.remove('fade-in'), 250);
 
-  }, 250); // wait for fade-out to finish before swapping content
+  }, 250);
 }
 
 // Tab switching
@@ -155,6 +224,7 @@ tabBtns.forEach(btn => {
     renderProjects(btn.dataset.tab);
   });
 });
+
 
 // Initial render
 renderProjects('all');
