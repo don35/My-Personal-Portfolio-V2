@@ -88,7 +88,7 @@ const projects = [
     title: 'CC Verification Report Generator', 
     description: 'System for automating and managing credit card verification reports with AI Assistant Integration .', 
     tech: ['HTML', 'Tailwind CSS', 'JavaScript'],
-    image: 'images/rcbc1.png',
+    image: 'images/rcbc.png',
     category: 'webapp'
   },
 
