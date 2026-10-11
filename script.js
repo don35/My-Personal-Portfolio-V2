@@ -380,3 +380,28 @@ closeBtn.addEventListener('click', () => {
 
 sendBtn.addEventListener('click', () => sendMessage());
 input.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendMessage(); });
+
+// Certificate lightbox
+const certBox   = document.getElementById('certLightbox');
+const certImg   = document.getElementById('certLightboxImg');
+const certCap   = document.getElementById('certLightboxCaption');
+
+function closeCert() {
+  certBox.classList.remove('open');
+  certBox.setAttribute('aria-hidden', 'true');
+}
+
+document.querySelectorAll('.cert-thumb').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    certImg.src = btn.dataset.full;
+    certImg.alt = btn.dataset.caption;
+    certCap.textContent = btn.dataset.caption;
+    certBox.classList.add('open');
+    certBox.setAttribute('aria-hidden', 'false');
+  });
+});
+
+certBox.addEventListener('click', (e) => {
+  if (e.target === certBox || e.target.classList.contains('cert-lightbox-close')) closeCert();
+});
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeCert(); });
